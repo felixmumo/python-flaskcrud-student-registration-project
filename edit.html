@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #667eea;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .form-box {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2em;
+        }
+        
+        h2 i { color: #667eea; margin-right: 10px; }
+        
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1976d2;
+        }
+        
+        .info-box i { font-size: 1.2em; }
+        
+        .db-badge {
+            background: #f0f4ff;
+            padding: 8px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #667eea;
+            font-size: 0.9em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        label i {
+            color: #667eea;
+            margin-right: 8px;
+            width: 20px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn-update, .btn-cancel {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-update {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-update:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn-cancel:hover {
+            background: #da190b;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            color: #666;
+        }
+        
+        .footer i { color: #667eea; }
+        .footer .fa-heart { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>
+                <i class="fas fa-edit"></i>
+                Edit Student
+            </h2>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <span>Editing Student ID: <strong>#{{ student[0] }}</strong></span>
+            </div>
+            
+            <div class="db-badge">
+                <i class="fas fa-database"></i> Database: flaskcrud | Table: students
+            </div>
+
+            <form method="POST">
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user"></i>
+                        Full Name
+                    </label>
+                    <input type="text" name="name" value="{{ student[1] }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" name="email" value="{{ student[2] }}" required>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-update">
+                        <i class="fas fa-save"></i>
+                        Update in flaskcrud
+                    </button>
+                    <a href="/" class="btn-cancel">
+                        <i class="fas fa-arrow-left"></i>
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>
+                <i class="fas fa-copyright"></i> Felix Mumo - Moringa School 2026
+                <i class="fas fa-heart"></i>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
